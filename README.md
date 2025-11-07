@@ -1,1 +1,0 @@
-# EEL-mini-projectct-sem1
