@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Fetch live data from USGS
+   
     url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=22.0&longitude=78.0&maxradiuskm=1500&orderby=time"
     response = requests.get(url)
     data = response.json()
@@ -16,7 +16,7 @@ def home():
     for feature in data['features']:
         mag = feature['properties']['mag']
         place = feature['properties']['place']
-        local_tz = pytz.timezone("Asia/Kolkata")  # ← change to your timezone (e.g., "America/New_York")
+        local_tz = pytz.timezone("Asia/Kolkata")  
         utc_time = datetime.fromtimestamp(feature['properties']['time'] / 1000, tz=timezone.utc)
         local_time = utc_time.astimezone(local_tz)
         time = local_time.strftime("%B %d, %Y – %I:%M:%S %p")
