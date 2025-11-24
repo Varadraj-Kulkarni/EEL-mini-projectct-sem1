@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # Fetch live data from USGS
-    url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
+    url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=22.0&longitude=78.0&maxradiuskm=1500&orderby=time"
     response = requests.get(url)
     data = response.json()
 
